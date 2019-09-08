@@ -3,11 +3,11 @@
 
 		<a class="navbar-brand" href="#">Jegybazár</a>
 
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+		<button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="collapse navbar-collapse" id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
 			<div class="navbar-nav ml-auto">
 				<a class="nav-item nav-link active" href="index.html">Home</a>
 				<a class="nav-item nav-link" href="esemenyek.html">Események</a>
