@@ -19,7 +19,10 @@ import { TicketListComponent } from './ticket-list/ticket-list.component';
 
 const routes: Routes = [
     {path: 'home', component: HomeComponent},
-    {path: 'event', component: EventComponent},
+    {path: 'event', component: EventComponent, children: [
+        {path: 'list', component: EventListComponent},
+        {path: ':id/edit', component: EventDetailComponent}
+    ]},
     {path: 'ticket', component: TicketComponent},
     {path: 'about', component: AboutComponent},
     {path: 'login', component: LoginComponent},
