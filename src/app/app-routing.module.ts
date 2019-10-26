@@ -21,12 +21,21 @@ const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'event', component: EventComponent, children: [
         {path: 'list', component: EventListComponent},
+        {path: 'new', component: EventDetailComponent},
         {path: ':id/edit', component: EventDetailComponent}
     ]},
-    {path: 'ticket', component: TicketComponent},
+    {path: 'ticket', children: [
+        {path: 'list', component: TicketListComponent},
+        {path: 'new', component: TicketDetailComponent},
+        {path: ':id/bid', component: TicketDetailComponent}
+    ]},
     {path: 'about', component: AboutComponent},
-    {path: 'login', component: LoginComponent},
-    {path: 'registration', component: RegistrationComponent},
+    {path: 'user', children: [
+        {path: '', component: ProfileComponent},
+        {path: 'edit', component: ProfileEditComponent},
+        {path: 'login', component: LoginComponent},
+        {path: 'registration', component: RegistrationComponent}
+    ]},
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: '**', component: PageNotFoundComponent}
 ];
