@@ -22,7 +22,7 @@ const routes: Routes = [
     {path: 'event', component: EventComponent, children: [
         {path: 'list', component: EventListComponent},
         {path: 'new', component: EventDetailComponent},
-        {path: ':id/edit', component: EventDetailComponent}
+        {path: ':id', component: EventDetailComponent}
     ]},
     {path: 'ticket', children: [
         {path: 'list', component: TicketListComponent},
