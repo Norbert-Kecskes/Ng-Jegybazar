@@ -11,6 +11,7 @@ import { JumbotronComponent } from './core/jumbotron/jumbotron.component';
 import { NavbarComponent } from './core/navbar/navbar.component';
 
 import { EventService } from './shared/event.service';
+import { UserService } from './shared/user.service';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,7 @@ import { EventService } from './shared/event.service';
         BrowserAnimationsModule,
         CollapseModule.forRoot()
     ],
-    providers: [EventService],
+    providers: [EventService, UserService],
     bootstrap: [AppComponent]
 })
 

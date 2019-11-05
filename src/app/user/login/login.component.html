@@ -13,16 +13,15 @@
                 <div class="card-header">Bejelentkezés</div>
 
                 <div class="card-body">
-                    <form id="loginForm" novalidate>
                         <div class="form-group">
                             <label for="loginEmail">Email</label>
-                            <input title="hibás email cím" name="loginEmail" type="email" class="form-control" id="loginEmail" placeholder="email">
+                            <input title="hibás email cím" name="loginEmail" type="email" class="form-control" id="loginEmail" value="Angular" placeholder="email" #email>
                             <small id="emailHelp" class="form-text text-muted">a címed nálunk biztonságban lesz</small>
                         </div>
 
                         <div class="form-group">
                             <label for="loginPassword">Jelszó</label>
-                            <input name="loginPassword" type="password" class="form-control" id="loginPassword" placeholder="jelszó">
+                            <input name="loginPassword" type="password" class="form-control" id="loginPassword" value="Angular" placeholder="jelszó" #password>
                         </div>
 
                         <div class="form-check mb-4">
@@ -32,8 +31,7 @@
                             </label>
                         </div>
 
-                        <button routerLink="/user" type="submit" class="btn btn-primary">belépés</button>
-                    </form>
+                        <button (click)="login(email.value, password.value)" class="btn btn-primary">belépés</button>
                 </div>
             </div>
 

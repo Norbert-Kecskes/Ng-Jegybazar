@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
     selector: 'app-navbar',
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
     isCollapsed = true;
 
-    constructor() {}
+    constructor(public userService: UserService) {}
+
+    logout() {
+        this.userService.logout();
+    }
 }
