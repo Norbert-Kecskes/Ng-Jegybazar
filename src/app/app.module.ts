@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { CollapseModule, AlertModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './core/footer/footer.component';
@@ -25,7 +25,8 @@ import { UserService } from './shared/user.service';
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
-        CollapseModule.forRoot()
+        CollapseModule.forRoot(),
+        AlertModule.forRoot()
     ],
     providers: [EventService, UserService],
     bootstrap: [AppComponent]
