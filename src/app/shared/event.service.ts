@@ -76,7 +76,19 @@ export class EventService {
         ];
     }
 
+    /**
+     * Get all events.
+     */
     getAllEvents(): EventModel[] {
         return this.events;
+    }
+
+    /**
+     * This returns the specified event based on the id.
+     * @param id The id of the event to retrieve.
+     */
+    getEventById(id: number): EventModel {
+        const ev = this.events.filter(event => event.id === id);
+        return ev.length > 0 ? ev[0] : new EventModel(EventModel.emptyEvent);
     }
 }

@@ -87,4 +87,25 @@ export class TicketService {
             })
         ];
     }
+
+    /**
+     * Get all tickets
+     */
+    getAllTickets() {
+        return this.tickets.map(ticket => {
+            return {
+                ...ticket,
+                event: this.eventService.getEventById(ticket.eventId),
+                seller: this.userService.getUserById(ticket.sellerUserId)
+            };
+        });
+    }
+
+    /**
+     * Get the event name by id.
+     * @param id The id of the event to retrieve.
+     */
+    getEventNameById(id: number) {
+        return this.eventService.getEventById(id).name;
+    }
 }
