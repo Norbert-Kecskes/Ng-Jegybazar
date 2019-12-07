@@ -16,6 +16,7 @@ import { RegistrationComponent } from './user/registration/registration.componen
 import { TicketComponent } from './ticket/ticket.component';
 import { TicketDetailComponent } from './ticket/ticket-detail/ticket-detail.component';
 import { TicketListComponent } from './ticket/ticket-list/ticket-list.component';
+import { LoggedInGuard } from './shared/logged-in.guard';
 
 const routes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -31,8 +32,8 @@ const routes: Routes = [
     ]},
     {path: 'about', component: AboutComponent},
     {path: 'user', children: [
-        {path: '', component: ProfileComponent},
-        {path: 'edit', component: ProfileEditComponent},
+        {path: '', component: ProfileComponent, canActivate: [LoggedInGuard]},
+        {path: 'edit', component: ProfileEditComponent, canActivate: [LoggedInGuard]},
         {path: 'login', component: LoginComponent},
         {path: 'registration', component: RegistrationComponent}
     ]},

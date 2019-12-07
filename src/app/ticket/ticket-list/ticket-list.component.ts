@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { TicketModel } from 'src/app/shared/ticket-model';
+import { TicketService } from 'src/app/shared/ticket.service';
 
 @Component({
-  selector: 'app-ticket-list',
-  templateUrl: './ticket-list.component.html',
-  styleUrls: ['./ticket-list.component.scss']
+    selector: 'app-ticket-list',
+    templateUrl: './ticket-list.component.html',
+    styleUrls: ['./ticket-list.component.scss']
 })
+
 export class TicketListComponent implements OnInit {
 
-  constructor() { }
+    tickets: TicketModel[];
 
-  ngOnInit() {
-  }
+    constructor(private ticketService: TicketService) { }
+
+    ngOnInit() {
+        this.tickets = this.ticketService.getAllTickets();
+    }
 
 }

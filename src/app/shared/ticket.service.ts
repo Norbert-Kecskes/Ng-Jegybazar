@@ -34,7 +34,7 @@ export class TicketService {
                 bidStep: 1000,
                 bidStartDate: '2017-11-15',
                 bidEndDate: '2017-12-16',
-                eventId: 1,
+                eventId: 3,
                 sellerUserId: 2,
             }),
             new TicketModel({
@@ -47,7 +47,7 @@ export class TicketService {
                 bidStartDate: '2018-01-05',
                 bidEndDate: '2018-03-05',
                 eventId: 2,
-                sellerUserId: 3,
+                sellerUserId: 4,
             }),
             new TicketModel({
                 id: 4,
@@ -58,8 +58,8 @@ export class TicketService {
                 bidStep: 1000,
                 bidStartDate: '2018-11-05',
                 bidEndDate: '2018-12-05',
-                eventId: 3,
-                sellerUserId: 2,
+                eventId: 5,
+                sellerUserId: 5,
             }),
             new TicketModel({
                 id: 5,
@@ -70,8 +70,8 @@ export class TicketService {
                 bidStep: 2000,
                 bidStartDate: '2018-09-05',
                 bidEndDate: '2018-10-05',
-                eventId: 2,
-                sellerUserId: 2,
+                eventId: 6,
+                sellerUserId: 3,
             }),
             new TicketModel({
                 id: 6,
@@ -82,8 +82,8 @@ export class TicketService {
                 bidStep: 1500,
                 bidStartDate: '2018-09-05',
                 bidEndDate: '2018-10-05',
-                eventId: 1,
-                sellerUserId: 3,
+                eventId: 4,
+                sellerUserId: 6,
             })
         ];
     }

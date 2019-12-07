@@ -48,7 +48,7 @@ export class UserService {
             }),
             new UserModel({
                 id: 5,
-                name: 'Géza Bá',
+                name: 'Géza Bácsi',
                 email: 'gezaba@gezaba.hu',
                 address: 'Gázabá lak 12',
                 dateOfBirth: '1940-01-01',
@@ -95,5 +95,9 @@ export class UserService {
     getUserById(id: number): UserModel {
         const user = this.allUsers.filter(u => u.id === id);
         return user.length > 0 ? user[0] : new UserModel(UserModel.emptyUser);
+    }
+
+    getCurrentUser(): UserModel {
+        return this.user;
     }
 }
