@@ -91,4 +91,28 @@ export class EventService {
         const ev = this.events.filter(event => event.id === id);
         return ev.length > 0 ? ev[0] : new EventModel(EventModel.emptyEvent);
     }
+
+    /**
+     * Create the new event beased on the filled form.
+     * @param param the filled form param.
+     */
+    create(param: EventModel) {
+        this.events = [
+            ...this.events,
+            {
+                id: this.getMaxId() + 1,
+                name: param.name,
+                date: param.date,
+                pictureURL: param.pictureURL,
+                description: param.description
+            }
+        ];
+    }
+
+    /**
+     * Get the max event id.
+     */
+    private getMaxId() {
+        return this.events.reduce((acc, elem) => acc.id > elem.id ? acc : elem).id;
+    }
 }

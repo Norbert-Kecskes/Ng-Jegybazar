@@ -13,7 +13,6 @@ export class EventListComponent implements OnInit {
 
     constructor(private eventService: EventService) {
         this.events = eventService.getAllEvents();
-        console.log(this.events);
     }
 
     ngOnInit() {
