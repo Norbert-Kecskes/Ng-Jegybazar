@@ -92,6 +92,10 @@ export class EventService {
         return ev.length > 0 ? ev[0] : new EventModel(EventModel.emptyEvent);
     }
 
+    update(param: EventModel) {
+        this.events = this.events.map(ev => ev.id === param.id ? {...param} : ev);
+    }
+
     /**
      * Create the new event beased on the filled form.
      * @param param the filled form param.

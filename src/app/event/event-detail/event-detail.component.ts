@@ -26,7 +26,7 @@ export class EventDetailComponent implements OnInit {
      */
     onSubmit(formValue: any) {
         if (this.event.id !== 0) {
-            console.log('szerkesztés ág');
+            this.eventService.update(this.event);
         } else {
             this.eventService.create(this.event);
         }
