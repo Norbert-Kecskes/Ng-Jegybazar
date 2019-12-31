@@ -108,4 +108,23 @@ export class TicketService {
     getEventNameById(id: number) {
         return this.eventService.getEventById(id).name;
     }
+
+    create(param: TicketModel) {
+        this.tickets = [
+            ...this.tickets,
+            new TicketModel({
+                id: this.getMaxId() + 1,
+                ...param,
+                event: this.eventService.getEventById(param.eventId),
+                seller: this.userService.getUserById(param.sellerUserId)
+            })
+        ];
+    }
+
+    /**
+     * Get the max event id.
+     */
+    private getMaxId() {
+        return this.tickets.reduce((acc, elem) => acc.id > elem.id ? acc : elem).id;
+    }
 }

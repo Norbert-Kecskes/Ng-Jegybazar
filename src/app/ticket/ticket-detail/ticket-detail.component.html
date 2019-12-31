@@ -1,73 +1,142 @@
-<app-jumbotron>
-    <h1 class="display-4 mb-4">Ticket Detail</h1>
-    <p class="lead">Használd a Jegybazárt és csereberélj jegyeket a legjobb bulikra. Elfogyott? Az orrod elől vitték el az utolsót? Ne aggódj, irány a JegyBazár!</p>
-</app-jumbotron>
+<div class="card mb-4 col-11 col-sm-8 mx-auto p-0">
 
-<div class="container">
-    <div class="card mb-4 col-11 col-sm-8 mx-auto p-0">
-
-        <div class="card-header">
-            <div class="bg-light text-center">
-                <h3>Új jegy</h3>
-            </div>
+    <div class="card-header">
+        <div class="bg-light text-center">
+            <h3>Új jegylicit indítása</h3>
         </div>
+    </div>
 
-        <div class="card-body">
+    <div class="card-body">
+
+        <form #ticketForm="ngForm" (ngSubmit)="onSubmit()">
 
             <div class="form-group">
                 <label for="select">Esemény választása</label>
-                <select class="form-control" id="select">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                <select
+                    id="select"
+                    class="form-control"
+                    [(ngModel)]="ticket.eventId"
+                    name="eventId"
+                    #event="ngModel"
+                    required
+                >
+                    <option selected hidden disabled value="0">Válassz egy eseményt!</option>
+                    <option *ngFor="let event of events" [value]=event.id>{{ event.name }}</option>
                 </select>
+                <alert type="danger" *ngIf="event.touched && event.pristine">Kötelező mező</alert>
             </div>
 
             <div class="form-group">
                 <label for="idopont">Időpont</label>
-                <input type="date" class="form-control mb-3" id="idopont" placeholder="időpont">
+                <input
+                    type="date"
+                    class="form-control mb-3"
+                    id="idopont"
+                    placeholder="időpont"
+                    [(ngModel)]="ticket.date"
+                    name="date"
+                    #date="ngModel"
+                    required
+                >
+                <alert type="danger" *ngIf="date.touched && date.pristine">Kötelező mező</alert>
             </div>
 
             <div class="form-group">
                 <label for="eloado">Előadó</label>
-                <input type="text" class="form-control mb-3" id="eloado" placeholder="előadó">
+                <input
+                    type="text"
+                    class="form-control mb-3"
+                    id="eloado"
+                    placeholder="előadó"
+                    [(ngModel)]="ticket.artist"
+                    name="artist"
+                >
             </div>
 
             <div class="form-group">
                 <label for="darab">Darabszám</label>
-                <input type="number" class="form-control mb-3" id="darab" placeholder="darabszám">
+                <input
+                    type="number"
+                    class="form-control mb-3"
+                    id="darab"
+                    placeholder="darabszám"
+                    [(ngModel)]="ticket.numberOfTickets"
+                    name="numberOfTickets"
+                    #numberOfTickets="ngModel"
+                    required
+                >
+                <alert type="danger" *ngIf="numberOfTickets.touched && numberOfTickets.pristine">Kötelező mező</alert>
             </div>
             
             <h3 class="my-3">Licit beállítások</h3>
 
             <div class="form-group">
                 <label for="minlicit">Minimum licit érték</label>
-                <input type="number" class="form-control mb-3" id="minlicit" placeholder="Minimum licit érték">
+                <input
+                    type="number"
+                    class="form-control mb-3"
+                    id="minlicit"
+                    placeholder="Minimum licit érték"
+                    [(ngModel)]="ticket.minimalBidPrice"
+                    name="minimalBidPrice"
+                    #minimalBidPrice="ngModel"
+                    required
+                >
+                <alert type="danger" *ngIf="minimalBidPrice.touched && minimalBidPrice.pristine">Kötelező mező</alert>
             </div>
 
             <div class="form-group">
                 <label for="lepcso">Licit lépcső érték</label>
-                <input type="text" class="form-control mb-3" id="lepcso" placeholder="Licit lépcső érték">
+                <input
+                    type="text"
+                    class="form-control mb-3"
+                    id="lepcso"
+                    placeholder="Licit lépcső érték"
+                    [(ngModel)]="ticket.bidStep"
+                    name="bidStep"
+                    #bidStep="ngModel"
+                    required
+                >
+                <alert type="danger" *ngIf="bidStep.touched && bidStep.pristine">Kötelező mező</alert>
             </div>
 
             <div class="form-group">
                 <label for="ertek">Licit kezdete</label>
-                <input type="date" class="form-control mb-3" id="inlineFormInputGroupUsername" placeholder="Licit kezdete">
+                <input
+                    type="date"
+                    class="form-control mb-3"
+                    id="inlineFormInputGroupUsername"
+                    placeholder="Licit kezdete"
+                    [(ngModel)]="ticket.bidStartDate"
+                    name="bidStartDate"
+                >
             </div>
 
             <div class="form-group">
                 <label>Licit vége</label>
-                <input type="date" class="form-control mb-3" id="ertek" placeholder="Licit vége">
+                <input
+                    type="date"
+                    class="form-control mb-3"
+                    id="ertek"
+                    placeholder="Licit vége"
+                    [(ngModel)]="ticket.bidEndDate"
+                    name="bidEndDate"
+                >
             </div>
 
             <div class="text-center mb-3">
-                <input routerLink="/ticket/list" class="btn btn-primary btn-lg mr-2" type="submit" value="Licit indítása">
-                <input routerLink="/ticket/list" class="btn btn-secondary btn-lg" type="submit" value="mégsem">
+                <button
+                    class="btn btn-primary btn-lg mr-2"
+                    type="submit"
+                    [disabled]="event.pristine || date.pristine || numberOfTickets.pristine || minimalBidPrice.pristine"
+                >
+                    Licit indítása
+                </button>
+                <button routerLink="../" class="btn btn-secondary btn-lg" type="button">Mégsem</button>
             </div>
 
-        </div>
+        </form>
 
     </div>
+
 </div>

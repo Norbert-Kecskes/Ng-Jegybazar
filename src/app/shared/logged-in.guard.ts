@@ -10,9 +10,7 @@ export class LoggedInGuard implements CanActivate {
 
     constructor(private userService: UserService, private router: Router) { }
 
-    canActivate(
-        next: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot): boolean {
+    canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         if (this.userService.isLoggedIn) {
             return true;
         } else {

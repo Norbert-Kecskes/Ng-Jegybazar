@@ -33,42 +33,42 @@ export class EventService {
             },
             {
                 id: 4,
-                name: 'Sziget Fesztivál',
+                name: 'Sziget Fesztivál II.',
                 date: '2019-08-03',
                 pictureURL: 'assets/img/sziget.png',
                 description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.'
             },
             {
                 id: 5,
-                name: 'Diótörő Balett',
+                name: 'Diótörő Balett II.',
                 date: '2019-11-23',
                 pictureURL: 'assets/img/diotoro.jpg',
                 description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.'
             },
             {
                 id: 6,
-                name: 'Macskák Musical',
+                name: 'Macskák Musical II.',
                 date: '2020-02-11',
                 pictureURL: 'assets/img/macskak.jpg',
                 description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.'
             },
             {
                 id: 7,
-                name: 'Sziget Fesztivál',
+                name: 'Sziget Fesztivál III.',
                 date: '2019-08-03',
                 pictureURL: 'assets/img/sziget.png',
                 description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.'
             },
             {
                 id: 8,
-                name: 'Diótörő Balett',
+                name: 'Diótörő Balett III.',
                 date: '2019-11-23',
                 pictureURL: 'assets/img/diotoro.jpg',
                 description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.'
             },
             {
                 id: 9,
-                name: 'Macskák Musical',
+                name: 'Macskák Musical III.',
                 date: '2020-02-11',
                 pictureURL: 'assets/img/macskak.jpg',
                 description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.'
@@ -88,7 +88,7 @@ export class EventService {
      * @param id The id of the event to retrieve.
      */
     getEventById(id: number): EventModel {
-        const ev = this.events.filter(event => event.id === id);
+        const ev = this.events.filter(event => event.id === +id);
         return ev.length > 0 ? ev[0] : new EventModel(EventModel.emptyEvent);
     }
 

@@ -93,7 +93,7 @@ export class UserService {
     }
 
     getUserById(id: number): UserModel {
-        const user = this.allUsers.filter(u => u.id === id);
+        const user = this.allUsers.filter(u => u.id === +id);
         return user.length > 0 ? user[0] : new UserModel(UserModel.emptyUser);
     }
 

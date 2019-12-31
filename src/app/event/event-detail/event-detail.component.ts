@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/shared/event.service';
 import { EventModel } from 'src/app/shared/event-model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'app-event-detail',
@@ -12,7 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EventDetailComponent implements OnInit {
     event: EventModel;
 
-    constructor(private route: ActivatedRoute, private eventService: EventService, private router: Router) {}
+    constructor(private route: ActivatedRoute, private eventService: EventService, private location: Location) {}
 
     ngOnInit() {
         // Get the id from the url params and get the event based on this id.
@@ -31,7 +32,7 @@ export class EventDetailComponent implements OnInit {
             this.eventService.create(this.event);
         }
 
-        this.router.navigate(['/event/list']);
+        this.location.back();
     }
 
 }

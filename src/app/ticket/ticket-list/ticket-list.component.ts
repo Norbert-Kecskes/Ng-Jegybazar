@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TicketModel } from 'src/app/shared/ticket-model';
 import { TicketService } from 'src/app/shared/ticket.service';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
     selector: 'app-ticket-list',
@@ -12,7 +13,7 @@ export class TicketListComponent implements OnInit {
 
     tickets: TicketModel[];
 
-    constructor(private ticketService: TicketService) { }
+    constructor(private ticketService: TicketService, public userService: UserService) { }
 
     ngOnInit() {
         this.tickets = this.ticketService.getAllTickets();
