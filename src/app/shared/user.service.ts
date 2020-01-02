@@ -15,6 +15,14 @@ export class UserService {
     constructor(private router: Router) {
         this.allUsers = [
             new UserModel({
+                id: 0,
+                name: 'Legyek Réka Matilda',
+                email: 'legyekrekamatilda@valami.com',
+                address: 'Futrinka utca',
+                dateOfBirth: '2001.01.01',
+                gender: 'female'
+            }),
+            new UserModel({
                 id: 1,
                 name: 'Pista Bá',
                 email: 'pistaba@pistaba.com',
@@ -99,5 +107,10 @@ export class UserService {
 
     getCurrentUser(): UserModel {
         return this.user;
+    }
+
+    updateUser(newUserParam: UserModel) {
+        this.user = newUserParam;
+        this.allUsers = this.allUsers.map(user => user.id === this.user.id ? newUserParam : user);
     }
 }
