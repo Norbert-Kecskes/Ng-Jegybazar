@@ -12,7 +12,6 @@ import { LoginComponent } from './user/login/login.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { ProfileEditComponent } from './user/profile-edit/profile-edit.component';
-import { RegistrationComponent } from './user/registration/registration.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { TicketDetailComponent } from './ticket/ticket-detail/ticket-detail.component';
 import { TicketListComponent } from './ticket/ticket-list/ticket-list.component';
@@ -51,7 +50,7 @@ const routes: Routes = [
             {path: '', component: ProfileComponent, canActivate: [LoggedInGuard]},
             {path: 'edit', component: ProfileEditComponent, canActivate: [LoggedInGuard]},
             {path: 'login', component: LoginComponent},
-            {path: 'registration', component: RegistrationComponent}
+            {path: 'registration', component: ProfileEditComponent}
         ]
     },
     {
@@ -83,7 +82,6 @@ export class AppRoutingModule {
         PageNotFoundComponent,
         ProfileComponent,
         ProfileEditComponent,
-        RegistrationComponent,
         TicketComponent,
         TicketDetailComponent,
         TicketListComponent

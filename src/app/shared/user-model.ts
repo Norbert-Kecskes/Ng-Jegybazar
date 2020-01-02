@@ -18,7 +18,7 @@ export class UserModel {
             name: 'Legyek Réka Matilda',
             email: 'legyekrekamatilda@valami.com',
             address: 'Futrinka utca',
-            dateOfBirth: '2001.01.01',
+            dateOfBirth: '2001-01-01',
             gender: 'female'
         };
     }

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { UserModel } from './user-model';
 
 @Injectable({
@@ -12,14 +11,14 @@ export class UserService {
     private user: UserModel;
     private allUsers: UserModel[];
 
-    constructor(private router: Router) {
+    constructor() {
         this.allUsers = [
             new UserModel({
                 id: 0,
                 name: 'Legyek Réka Matilda',
                 email: 'legyekrekamatilda@valami.com',
                 address: 'Futrinka utca',
-                dateOfBirth: '2001.01.01',
+                dateOfBirth: '2001-01-01',
                 gender: 'female'
             }),
             new UserModel({
@@ -77,7 +76,7 @@ export class UserService {
         if (email === 'Angular' && password === 'Angular') {
             this.user = new UserModel(UserModel.exampleUser);
             this.isLoggedIn = true;
-            this.router.navigate(['/user']);
+            return true;
         } else {
             return false;
         }
@@ -91,13 +90,11 @@ export class UserService {
         }
 
         this.isLoggedIn = true;
-        this.router.navigate(['/user']);
     }
 
     logout() {
         this.user = new UserModel();
         this.isLoggedIn = false;
-        this.router.navigate(['/user/login']);
     }
 
     getUserById(id: number): UserModel {
