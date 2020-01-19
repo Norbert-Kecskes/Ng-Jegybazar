@@ -1,0 +1,199 @@
+{
+    "events": {
+        "-Lyu58iylqeo1No854d3": {
+            "date": "2020-08-03",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.",
+            "id": "Lyu58iylqeo1No854d3",
+            "name": "Sziget Fesztivál",
+            "pictureURL": "assets/img/sziget.png"
+        },
+        "-Lyu5iogtX-1L_LnmpE5": {
+            "date": "2020-11-23",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.",
+            "id": "Lyu5iogtX-1L_LnmpE5",
+            "name": "Diótörő Balett",
+            "pictureURL": "assets/img/diotoro.jpg"
+        },
+        "-Lyu5yygZDLXNuXdRHW3": {
+            "date": "2020-06-11",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.",
+            "id": "Lyu5yygZDLXNuXdRHW3",
+            "name": "Macskák Musical",
+            "pictureURL": "assets/img/macskak.jpg"
+        },
+        "-Lyu6CuRUn6zLb6e-s3h": {
+            "date": "2020-10-03",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.",
+            "id": "Lyu6CuRUn6zLb6e-s3h",
+            "name": "Sziget Fesztivál II.",
+            "pictureURL": "assets/img/sziget.png"
+        },
+        "-Lyu6Ou9PYKXjmM3OF6j": {
+            "date": "2020-07-23",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.",
+            "id": "Lyu6Ou9PYKXjmM3OF6j",
+            "name": "Diótörő Balett II.",
+            "pictureURL": "assets/img/diotoro.jpg"
+        },
+        "-Lyu6dqLRyXOFHk7JXbW": {
+            "date": "2020-08-11",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.",
+            "id": "Lyu6dqLRyXOFHk7JXbW",
+            "name": "Macskák Musical II.",
+            "pictureURL": "assets/img/macskak.jpg"
+        },
+        "-Lyu6vcFkvjKNXSbc4u1": {
+            "date": "2020-12-04",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.",
+            "id": "Lyu6vcFkvjKNXSbc4u1",
+            "name": "Sziget Fesztivál III.",
+            "pictureURL": "assets/img/sziget.png"
+        },
+        "-Lyu7DjF-ZSIPKO4MRJi": {
+            "date": "2020-06-13",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.",
+            "id": "Lyu7DjF-ZSIPKO4MRJi",
+            "name": "Diótörő Balett III.",
+            "pictureURL": "assets/img/diotoro.jpg"
+        },
+        "-Lyu7TavqEX4CDYcBvVl": {
+            "date": "2020-07-14",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.",
+            "id": "Lyu7TavqEX4CDYcBvVl",
+            "name": "Macskák Musical III.",
+            "pictureURL": "assets/img/macskak.jpg"
+        }
+    },
+    "tickets": {
+        "-Lyu8ReWagKI2lD4Sc1a": {
+            "artist": "Iron Maiden",
+            "bidEndDate": "2020-12-05",
+            "bidStartDate": "2020-01-15",
+            "bidStep": "500",
+            "date": "2020-01-15",
+            "eventId": "Lyu58iylqeo1No854d3",
+            "id": "Lyu8ReWagKI2lD4Sc1a",
+            "minimalBidPrice": "2000",
+            "numberOfTickets": "5",
+            "sellerUserId": "LyuBfdptIlSbePUUrVH"
+        },
+        "-Lyu94BgrqONf7TYWJ4A": {
+            "artist": "Judas Priest",
+            "bidEndDate": "2020-12-05",
+            "bidStartDate": "2020-01-15",
+            "bidStep": "1000",
+            "date": "2020-01-15",
+            "eventId": "Lyu5iogtX-1L_LnmpE5",
+            "id": "Lyu94BgrqONf7TYWJ4A",
+            "minimalBidPrice": "4000",
+            "numberOfTickets": "4",
+            "sellerUserId": "LyuByNAtIMr97PYTRXs"
+        },
+        "-Lyu9XGfFizFbcNO0Ea5": {
+            "artist": "Manowar",
+            "bidEndDate": "2020-12-05",
+            "bidStartDate": "2020-01-15",
+            "bidStep": "2000",
+            "date": "2020-01-15",
+            "eventId": "Lyu5yygZDLXNuXdRHW3",
+            "id": "Lyu9XGfFizFbcNO0Ea5",
+            "minimalBidPrice": "5000",
+            "numberOfTickets": "7",
+            "sellerUserId": "LyumR0ydMrzY80UkxFb"
+        },
+        "-Lyu9ph6OMrgKGtWh9T0": {
+            "artist": "Sabbaton",
+            "bidEndDate": "2020-12-05",
+            "bidStartDate": "2020-01-15",
+            "bidStep": "1000",
+            "date": "2020-01-15",
+            "eventId": "Lyu6CuRUn6zLb6e-s3h",
+            "id": "Lyu9ph6OMrgKGtWh9T0",
+            "minimalBidPrice": "10000",
+            "numberOfTickets": "5",
+            "sellerUserId": "LyumeW_SaBtmbL62L3I"
+        },
+        "-LyuADTK2rXmY-Es6iXF": {
+            "artist": "Dear Theater",
+            "bidEndDate": "2020-12-05",
+            "bidStartDate": "2020-01-15",
+            "bidStep": "2000",
+            "date": "2020-01-15",
+            "eventId": "Lyu6Ou9PYKXjmM3OF6j",
+            "id": "LyuADTK2rXmY-Es6iXF",
+            "minimalBidPrice": "20000",
+            "numberOfTickets": "2",
+            "sellerUserId": "Lyun1L7m_Y4DenPD_qc"
+        },
+        "-LyuAbq8gIqkDMKqWm0H": {
+            "artist": "Black Label Society",
+            "bidEndDate": "2020-12-05",
+            "bidStartDate": "2020-01-15",
+            "bidStep": "1500",
+            "date": "2020-01-15",
+            "eventId": "Lyu6dqLRyXOFHk7JXbW",
+            "id": "LyuAbq8gIqkDMKqWm0H",
+            "minimalBidPrice": "15000",
+            "numberOfTickets": "1",
+            "sellerUserId": "LyunJ5d6jOv90MdKi5t"
+        }
+    },
+    "users": {
+        "2tMgwrEjF4dAqFxQl5AKuereWNM2": {
+            "address": "Pesti út",
+            "dateOfBirth": "1989-08-03",
+            "email": "webfejlesztes.kn@gmail.com",
+            "gender": "male",
+            "id": "2tMgwrEjF4dAqFxQl5AKuereWNM2",
+            "name": "Norbert Kecskés"
+        },
+        "-LyuBfdptIlSbePUUrVH": {
+            "address": "Pistaba lak 12",
+            "dateOfBirth": "1900-01-01",
+            "email": "pistaba@pistaba.com",
+            "gender": "male",
+            "id": "LyuBfdptIlSbePUUrVH",
+            "name": "Pista Bá"
+        },
+        "-LyuByNAtIMr97PYTRXs": {
+            "address": "Marcsa var 42",
+            "dateOfBirth": "2000-01-01",
+            "email": "marcsa@marcsa.hu",
+            "gender": "female",
+            "id": "LyuByNAtIMr97PYTRXs",
+            "name": "Marcsa"
+        },
+        "-LyumR0ydMrzY80UkxFb": {
+            "address": "namek",
+            "dateOfBirth": "2199-02-01",
+            "email": "mzx@mzx.hu",
+            "gender": "male",
+            "id": "LyumR0ydMrzY80UkxFb",
+            "name": "Ifju satan"
+        },
+        "-LyumeW_SaBtmbL62L3I": {
+            "address": "Jóskaneni lak 12",
+            "dateOfBirth": "1950-01-01",
+            "email": "joskaneni@joskaneni.com",
+            "gender": "female",
+            "id": "LyumeW_SaBtmbL62L3I",
+            "name": "Jóska néni"
+        },
+        "-Lyun1L7m_Y4DenPD_qc": {
+            "address": "Gézabá lak 12",
+            "dateOfBirth": "1940-01-01",
+            "email": "gezaba@gezaba.hu",
+            "gender": "male",
+            "id": "-Lyun1L7m_Y4DenPD_qc",
+            "name": "Géza Bácsi"
+        },
+        "-LyunJ5d6jOv90MdKi5t": {
+            "address": "Son Goku lak 24",
+            "dateOfBirth": "2110-01-01",
+            "email": "songoku@songoku.com",
+            "gender": "male",
+            "id": "LyunJ5d6jOv90MdKi5t",
+            "name": "Goku"
+        }
+    }
+}
