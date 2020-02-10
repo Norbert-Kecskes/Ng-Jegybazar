@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { EventService } from 'src/app/shared/event.service';
-import { EventModel } from 'src/app/shared/event-model';
-import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { EventService } from 'src/app/shared/event.service';
 
 @Component({
     selector: 'app-event-detail',
     templateUrl: './event-detail.component.html',
     styleUrls: ['./event-detail.component.scss']
 })
-
 export class EventDetailComponent implements OnInit {
-    event: EventModel;
+    event;
 
-    constructor(private route: ActivatedRoute, private eventService: EventService, private location: Location) {}
+    constructor(
+        private route: ActivatedRoute,
+        private eventService: EventService,
+        private location: Location
+    ) {}
 
     ngOnInit() {
         // Get the id from the url params and get the event based on this id.
@@ -34,5 +36,4 @@ export class EventDetailComponent implements OnInit {
 
         this.location.back();
     }
-
 }

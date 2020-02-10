@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { EventService } from './event.service';
-import { TicketModel } from './ticket-model';
-import { UserService } from './user.service';
+import { EventService } from '../event.service';
+import { TicketModel } from '../ticket-model';
+import { UserService } from '../user.service';
 
 @Injectable({
     providedIn: 'root'
@@ -107,19 +107,19 @@ export class TicketService {
      * @param id The id of the event to retrieve.
      */
     getEventNameById(id: number) {
-        // return this.eventService.getEventById(id).name;
+        return this.eventService.getEventById(id).name;
     }
 
     create(param: TicketModel) {
-        // this.tickets = [
-        //     ...this.tickets,
-        //     new TicketModel({
-        //         id: this.getMaxId() + 1,
-        //         ...param,
-        //         event: this.eventService.getEventById(param.eventId),
-        //         seller: this.userService.getUserById(param.sellerUserId)
-        //     })
-        // ];
+        this.tickets = [
+            ...this.tickets,
+            new TicketModel({
+                id: this.getMaxId() + 1,
+                ...param,
+                event: this.eventService.getEventById(param.eventId),
+                seller: this.userService.getUserById(param.sellerUserId)
+            })
+        ];
     }
 
     /**

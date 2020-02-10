@@ -2,8 +2,14 @@
     <div class="col-auto text-center">
         <label>Keresés az események között</label>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Esemény neve">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Keresés</button>
+            <input
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Esemény neve"
+            />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                Keresés
+            </button>
         </form>
     </div>
 
@@ -12,7 +18,11 @@
             <label>Eseményt szeretnék létrehozni</label>
         </div>
         <div class="w-100"></div>
-        <div><a routerLink="./new" class="btn btn-primary" role="button">Új esemény léterhozása</a></div>
+        <div>
+            <a routerLink="./new" class="btn btn-primary" role="button"
+                >Új esemény léterhozása</a
+            >
+        </div>
     </div>
 </div>
 
@@ -20,6 +30,9 @@
     <app-eventcard
         *ngFor="let event of events"
         [event]="event"
-        class="col col-md-6 col-lg-4 mt-1 mb-5">
+        class="col col-md-6 col-lg-4 mt-1 mb-5"
+    >
     </app-eventcard>
 </div>
+
+<pre>{{ events$ | async | json }}</pre>

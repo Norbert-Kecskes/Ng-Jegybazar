@@ -1,8 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { EventModel } from './event-model';
+import { EventModel } from '../event-model';
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +7,7 @@ import { EventModel } from './event-model';
 export class EventService {
     private events: EventModel[];
 
-    constructor(private http: HttpClient) {
+    constructor() {
         this.events = [
             {
                 id: 1,
@@ -90,25 +87,23 @@ export class EventService {
     /**
      * Get all events.
      */
-    getAllEvents(): Observable<any> {
-        return this.http.get(
-            `${environment.firebaseConfig.databaseURL}/events.json`
-        );
+    getAllEvents(): EventModel[] {
+        return this.events;
     }
 
     /**
      * This returns the specified event based on the id.
      * @param id The id of the event to retrieve.
      */
-    getEventById(id: number) {
-        // const ev = this.events.filter(event => event.id === +id);
-        // return ev.length > 0 ? ev[0] : new EventModel(EventModel.emptyEvent);
+    getEventById(id: number): EventModel {
+        const ev = this.events.filter(event => event.id === +id);
+        return ev.length > 0 ? ev[0] : new EventModel(EventModel.emptyEvent);
     }
 
     update(param: EventModel) {
-        // this.events = this.events.map(ev =>
-        //     ev.id === param.id ? { ...param } : ev
-        // );
+        this.events = this.events.map(ev =>
+            ev.id === param.id ? { ...param } : ev
+        );
     }
 
     /**
@@ -116,16 +111,16 @@ export class EventService {
      * @param param the filled form param.
      */
     create(param: EventModel) {
-        // this.events = [
-        //     ...this.events,
-        //     {
-        //         id: this.getMaxId() + 1,
-        //         name: param.name,
-        //         date: param.date,
-        //         pictureURL: param.pictureURL,
-        //         description: param.description
-        //     }
-        // ];
+        this.events = [
+            ...this.events,
+            {
+                id: this.getMaxId() + 1,
+                name: param.name,
+                date: param.date,
+                pictureURL: param.pictureURL,
+                description: param.description
+            }
+        ];
     }
 
     /**
