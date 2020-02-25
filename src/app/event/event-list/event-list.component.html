@@ -28,11 +28,9 @@
 
 <div class="card-deck mt-5">
     <app-eventcard
-        *ngFor="let event of events"
+        *ngFor="let event of events$ | async"
         [event]="event"
         class="col col-md-6 col-lg-4 mt-1 mb-5"
     >
     </app-eventcard>
 </div>
-
-<pre>{{ events$ | async | json }}</pre>

@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { EventModel } from './event-model';
 
@@ -88,9 +87,9 @@ export class EventService {
     }
 
     /**
-     * Get all events.
+     * Get all events from the server.
      */
-    getAllEvents(): Observable<any> {
+    getAllEvents() {
         return this.http.get(
             `${environment.firebaseConfig.databaseURL}/events.json`
         );
