@@ -12,7 +12,6 @@ import { UserService } from 'src/app/shared/user.service';
 })
 export class EventListComponent implements OnInit {
     private events$: Observable<any>;
-    public events: EventModel[];
 
     constructor(
         private eventService: EventService,

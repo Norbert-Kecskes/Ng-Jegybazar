@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { EventModel } from './event-model';
 
@@ -99,9 +100,10 @@ export class EventService {
      * This returns the specified event based on the id.
      * @param id The id of the event to retrieve.
      */
-    getEventById(id: number) {
-        // const ev = this.events.filter(event => event.id === +id);
-        // return ev.length > 0 ? ev[0] : new EventModel(EventModel.emptyEvent);
+    getEventById(id: string): Observable<EventModel> {
+        return this.http.get<EventModel>(
+            `${environment.firebaseConfig.databaseURL}/events/${id}.json`
+        );
     }
 
     update(param: EventModel) {
@@ -130,9 +132,9 @@ export class EventService {
     /**
      * Get the max event id.
      */
-    private getMaxId() {
-        return this.events.reduce((acc, elem) =>
-            acc.id > elem.id ? acc : elem
-        ).id;
-    }
+    // private getMaxId() {
+    //     return this.events.reduce((acc, elem) =>
+    //         acc.id > elem.id ? acc : elem
+    //     ).id;
+    // }
 }

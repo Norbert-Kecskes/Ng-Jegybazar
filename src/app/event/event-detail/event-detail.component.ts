@@ -1,6 +1,8 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { EventModel } from 'src/app/shared/event-model';
 import { EventService } from 'src/app/shared/event.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { EventService } from 'src/app/shared/event.service';
     styleUrls: ['./event-detail.component.scss']
 })
 export class EventDetailComponent implements OnInit {
-    event;
+    event$: Observable<EventModel>;
 
     constructor(
         private route: ActivatedRoute,
@@ -19,8 +21,9 @@ export class EventDetailComponent implements OnInit {
 
     ngOnInit() {
         // Get the id from the url params and get the event based on this id.
-        const eventId = +this.route.snapshot.params.id;
-        this.event = this.eventService.getEventById(eventId);
+        const eventId = this.route.snapshot.params.id;
+        // Get the event based on the id.
+        this.event$ = this.eventService.getEventById(eventId);
     }
 
     /**
