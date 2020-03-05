@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/shared/user.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
     selector: 'app-login',
@@ -15,14 +15,17 @@ export class LoginComponent implements OnInit {
     ngOnInit() {}
 
     login(email: string, password: string) {
-        if (!this.userService.login(email, password)) {
-            this.errorMsg = 'Hiba a belépési adatokban. Próbáld újra később';
-        } else {
-            this.router.navigate(['/user']);
-        }
+        this.userService
+            .login(email, password)
+            .subscribe(data => console.log(data));
+        // if (!this.userService.login(email, password)) {
+        //     this.errorMsg = 'Hiba a belépési adatokban. Próbáld újra később';
+        // } else {
+        //     this.router.navigate(['/user']);
+        // }
     }
 
     clearError() {
-        delete(this.errorMsg);
+        delete this.errorMsg;
     }
 }

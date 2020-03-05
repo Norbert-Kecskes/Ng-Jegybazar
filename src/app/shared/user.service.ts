@@ -1,17 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { UserModel } from './user-model';
 
 @Injectable({
     providedIn: 'root'
 })
-
 export class UserService {
     isLoggedIn = false;
 
     private user: UserModel;
     private allUsers: UserModel[];
 
-    constructor() {
+    constructor(private http: HttpClient) {
         this.allUsers = [
             new UserModel({
                 id: 0,
@@ -68,18 +69,26 @@ export class UserService {
                 address: 'Son Goku lak 24',
                 dateOfBirth: '2110-01-01',
                 gender: 'male'
-            }),
+            })
         ];
     }
 
-    login(email: string, password: string): boolean {
-        if (email === 'Angular' && password === 'Angular') {
-            this.user = new UserModel(UserModel.exampleUser);
-            this.isLoggedIn = true;
-            return true;
-        } else {
-            return false;
-        }
+    login(email: string, password: string) {
+        return this.http.post(
+            `${environment.firebaseConfig.loginUrl}?key=${environment.firebaseConfig.apiKey}`,
+            {
+                email: email,
+                password: password,
+                returnSecureToken: true
+            }
+        );
+        // if (email === 'Angular' && password === 'Angular') {
+        //     this.user = new UserModel(UserModel.exampleUser);
+        //     this.isLoggedIn = true;
+        //     return true;
+        // } else {
+        //     return false;
+        // }
     }
 
     register(param?: UserModel) {
@@ -108,6 +117,8 @@ export class UserService {
 
     updateUser(newUserParam: UserModel) {
         this.user = newUserParam;
-        this.allUsers = this.allUsers.map(user => user.id === this.user.id ? newUserParam : user);
+        this.allUsers = this.allUsers.map(user =>
+            user.id === this.user.id ? newUserParam : user
+        );
     }
 }

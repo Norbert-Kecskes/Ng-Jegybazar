@@ -9,7 +9,7 @@ export const environment = {
         authDomain: 'jegybazar-cd118.firebaseapp.com',
         databaseURL: 'https://jegybazar-cd118.firebaseio.com',
         loginUrl:
-            'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=',
+            'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword',
         projectId: 'jegybazar-cd118',
         registrationUrl:
             'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=',
