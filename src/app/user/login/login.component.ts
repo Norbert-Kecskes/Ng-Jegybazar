@@ -15,14 +15,14 @@ export class LoginComponent implements OnInit {
     ngOnInit() {}
 
     login(email: string, password: string) {
-        this.userService
-            .login(email, password)
-            .subscribe(data => console.log(data));
-        // if (!this.userService.login(email, password)) {
-        //     this.errorMsg = 'Hiba a belépési adatokban. Próbáld újra később';
-        // } else {
-        //     this.router.navigate(['/user']);
-        // }
+        this.userService.login(email, password).subscribe(user => {
+            if (user) {
+                this.router.navigate(['/user']);
+            } else {
+                this.errorMsg =
+                    'Hiba a belépési adatokban. Próbáld újra később';
+            }
+        });
     }
 
     clearError() {

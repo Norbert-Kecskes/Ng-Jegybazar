@@ -31,12 +31,11 @@ export class EventDetailComponent implements OnInit {
      * @param formValue the filled form params.
      */
     onSubmit(formValue: any) {
-        if (this.event.id !== 0) {
-            this.eventService.update(this.event);
-        } else {
-            this.eventService.create(this.event);
-        }
-
-        this.location.back();
+        // if (this.event.id !== 0) {
+        //     this.eventService.update(this.event);
+        // } else {
+        //     this.eventService.create(this.event);
+        // }
+        // this.location.back();
     }
 }

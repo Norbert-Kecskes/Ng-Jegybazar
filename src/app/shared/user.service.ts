@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError, switchMap, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { IFirebaseLoginResp } from './interface/firebase-login-resp';
 import { UserModel } from './user-model';
 
 @Injectable({
@@ -12,83 +14,37 @@ export class UserService {
     private user: UserModel;
     private allUsers: UserModel[];
 
-    constructor(private http: HttpClient) {
-        this.allUsers = [
-            new UserModel({
-                id: 0,
-                name: 'Legyek Réka Matilda',
-                email: 'legyekrekamatilda@valami.com',
-                address: 'Futrinka utca',
-                dateOfBirth: '2001-01-01',
-                gender: 'female'
-            }),
-            new UserModel({
-                id: 1,
-                name: 'Pista Bá',
-                email: 'pistaba@pistaba.com',
-                address: 'Pistaba lak 12',
-                dateOfBirth: '1900-01-01',
-                gender: 'male'
-            }),
-            new UserModel({
-                id: 2,
-                name: 'Marcsa',
-                email: 'marcsa@marcsa.hu',
-                address: 'Marcsa var 42',
-                dateOfBirth: '2000-01-01',
-                gender: 'female'
-            }),
-            new UserModel({
-                id: 3,
-                name: 'Ifju satan',
-                email: 'mzx@mzx.hu',
-                address: 'namek',
-                dateOfBirth: '2199-02-01',
-                gender: 'satan fattya'
-            }),
-            new UserModel({
-                id: 4,
-                name: 'Jóska néni',
-                email: 'joskaneni@joskaneni.com',
-                address: 'Jóskaneni lak 12',
-                dateOfBirth: '1950-01-01',
-                gender: 'female'
-            }),
-            new UserModel({
-                id: 5,
-                name: 'Géza Bácsi',
-                email: 'gezaba@gezaba.hu',
-                address: 'Gázabá lak 12',
-                dateOfBirth: '1940-01-01',
-                gender: 'male'
-            }),
-            new UserModel({
-                id: 6,
-                name: 'Son Goku',
-                email: 'songoku@songoku.com',
-                address: 'Son Goku lak 24',
-                dateOfBirth: '2110-01-01',
-                gender: 'male'
-            })
-        ];
-    }
+    constructor(private http: HttpClient) {}
 
+    /**
+     * Login.
+     * Post an email and a password to the api, then process the response.
+     * If auth was passed, we got a local id, and we can get the user data.
+     */
     login(email: string, password: string) {
-        return this.http.post(
-            `${environment.firebaseConfig.loginUrl}?key=${environment.firebaseConfig.apiKey}`,
-            {
-                email: email,
-                password: password,
-                returnSecureToken: true
-            }
-        );
-        // if (email === 'Angular' && password === 'Angular') {
-        //     this.user = new UserModel(UserModel.exampleUser);
-        //     this.isLoggedIn = true;
-        //     return true;
-        // } else {
-        //     return false;
-        // }
+        return this.http
+            .post<IFirebaseLoginResp>(
+                `${environment.firebaseConfig.loginUrl}?key=${environment.firebaseConfig.apiKey}`,
+                {
+                    email: email,
+                    password: password,
+                    returnSecureToken: true
+                }
+            )
+            .pipe(
+                catchError(err => {
+                    throw err.error.error.message;
+                }),
+                switchMap((fbLoginResp: IFirebaseLoginResp) =>
+                    this.http.get(
+                        `${environment.firebaseConfig.databaseURL}/users/${fbLoginResp.localId}.json`
+                    )
+                ),
+                tap((user: UserModel) => {
+                    this.isLoggedIn = true;
+                    this.user = new UserModel(user);
+                })
+            );
     }
 
     register(param?: UserModel) {
