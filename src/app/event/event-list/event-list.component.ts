@@ -11,8 +11,14 @@ import { UserService } from 'src/app/shared/user.service';
     styleUrls: ['./event-list.component.scss']
 })
 export class EventListComponent implements OnInit {
-    private events$: Observable<any>;
+    // Reference it in the template.
+    public events$: Observable<any>;
 
+    /**
+     * Construction
+     * @param eventService The event service.
+     * @param userService The user service.
+     */
     constructor(
         private eventService: EventService,
         public userService: UserService
