@@ -14,7 +14,12 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {}
 
-    login(email: string, password: string) {
+    /**
+     * Call the user service login method with their parameters.
+     * @param email The inputed email string.
+     * @param password The inputed password string.
+     */
+    login(email: string, password: string): void {
         this.userService.login(email, password).subscribe(user => {
             if (user) {
                 this.router.navigate(['/user']);

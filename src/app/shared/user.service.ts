@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { catchError, switchMap, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { IFirebaseLoginResp } from './interface/firebase-login-resp';
@@ -21,7 +22,7 @@ export class UserService {
      * Post an email and a password to the api, then process the response.
      * If auth was passed, we got a local id, and we can get the user data.
      */
-    login(email: string, password: string) {
+    login(email: string, password: string): Observable<UserModel | void> {
         return this.http
             .post<IFirebaseLoginResp>(
                 `${environment.firebaseConfig.loginUrl}?key=${environment.firebaseConfig.apiKey}`,
